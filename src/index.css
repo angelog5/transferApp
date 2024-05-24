@@ -1,3 +1,8 @@
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 main {
   max-width: 480px;
   margin: 0 auto;
