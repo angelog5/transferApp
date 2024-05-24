@@ -1,0 +1,28 @@
+.navbar {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  top: 0px;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid gray;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.icon svg[fill="currentColor"] {
+  opacity: 1;
+}
