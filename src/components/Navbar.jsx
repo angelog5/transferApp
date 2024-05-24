@@ -1,19 +1,12 @@
-import { useState } from "react";
 import "../assets/css/Navbar.css";
 
-export default function Navbar() {
-  const [activeIcon, setActiveIcon] = useState(null);
-
-  const handleIconClick = (icon) => {
-    setActiveIcon(icon);
-  };
-
+export default function Navbar({ page, setPage }) {
   return (
     <div className="navbar">
-      <div className="icon" onClick={() => handleIconClick("home")}>
+      <div className="icon" onClick={() => setPage("splash")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill={activeIcon === "home" ? "currentColor" : "none"}
+          fill={page === "splash" ? "currentColor" : "none"}
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
@@ -26,10 +19,10 @@ export default function Navbar() {
           />
         </svg>
       </div>
-      <div className="icon" onClick={() => handleIconClick("calendar")}>
+      <div className="icon" onClick={() => setPage("booking")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill={activeIcon === "calendar" ? "currentColor" : "none"}
+          fill={page === "booking" ? "currentColor" : "none"}
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
@@ -42,10 +35,10 @@ export default function Navbar() {
           />
         </svg>
       </div>
-      <div className="icon" onClick={() => handleIconClick("heart")}>
+      <div className="icon" onClick={() => setPage("wishlist")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill={activeIcon === "heart" ? "currentColor" : "none"}
+          fill={page === "wishlist" ? "currentColor" : "none"}
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
@@ -58,10 +51,10 @@ export default function Navbar() {
           />
         </svg>
       </div>
-      <div className="icon" onClick={() => handleIconClick("user")}>
+      <div className="icon" onClick={() => setPage("profile")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill={activeIcon === "user" ? "currentColor" : "none"}
+          fill={page === "profile" ? "currentColor" : "none"}
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"

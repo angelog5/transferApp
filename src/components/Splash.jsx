@@ -1,6 +1,6 @@
 import "../assets/css/Splash.css";
 
-export default function Splash() {
+export default function Splash({ setPage }) {
   return (
     <div className="splash-container">
       <div className="splash-img-container">
@@ -22,7 +22,11 @@ export default function Splash() {
         </div>
       </div>
       <div>
-        <button type="button" className="btn btn-primary">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => setPage("booking")}
+        >
           Get Started
         </button>
       </div>
