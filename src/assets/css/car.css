@@ -1,6 +1,5 @@
 .car-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   border: 1px solid #ccc;
   padding: 20px;
@@ -12,7 +11,6 @@
 .content-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .car-model {
@@ -26,7 +24,7 @@
 .car-price {
   font-size: 20px;
   color: #666;
-  margin: 5px 0 0;
+  margin: -10px 0 0;
 }
 
 .image-container {
@@ -44,6 +42,8 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  background: none;
+  border: none;
 }
 .car-wishlist svg {
   width: 24px;
