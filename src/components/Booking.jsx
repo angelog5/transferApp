@@ -1,5 +1,6 @@
 import Car from "./Car";
 import "../assets/css/Booking.css";
+import SearchForm from "./SearchForm";
 
 export default function Booking() {
   const cars = [
@@ -27,10 +28,15 @@ export default function Booking() {
   ];
 
   return (
-    <div className="cars-container">
-      {cars.map(({ id, model, price, image }) => (
-        <Car key={id} model={model} price={price} image={image} id={id} />
-      ))}
+    <div>
+      <div className="searchForm">
+        <SearchForm />
+      </div>
+      <div className="cars-container">
+        {cars.map(({ id, model, price, image }) => (
+          <Car key={id} model={model} price={price} image={image} id={id} />
+        ))}
+      </div>
     </div>
   );
 }

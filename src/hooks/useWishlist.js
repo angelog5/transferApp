@@ -9,12 +9,14 @@ export default function useWishlist() {
     if (wishlist) setWishIds(JSON.parse(wishlist));
   }, []);
 
-  const isWish = (id) => wishIds.includes(id);
+  const isWish = (id) => wishIds.includes(parseInt(id));
 
   const handleWishlist = (id) => {
-    const updatedWishlist = wishIds.includes(id)
-      ? wishIds.filter((wishID) => id !== wishID)
-      : [...wishIds, id];
+    const idExists = isWish(id);
+    const updatedWishlist = idExists
+      ? wishIds.filter((wishID) => parseInt(id) !== parseInt(wishID))
+      : [...wishIds, parseInt(id)];
+
     setWishIds(updatedWishlist);
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
   };
