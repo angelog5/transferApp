@@ -5,15 +5,13 @@ export default function useWishlist() {
 
   useEffect(() => {
     const wishlist = localStorage.getItem("wishlist");
-
     if (wishlist) setWishIds(JSON.parse(wishlist));
   }, []);
 
   const isWish = (id) => wishIds.includes(parseInt(id));
 
   const handleWishlist = (id) => {
-    const idExists = isWish(id);
-    const updatedWishlist = idExists
+    const updatedWishlist = isWish(id)
       ? wishIds.filter((wishID) => parseInt(id) !== parseInt(wishID))
       : [...wishIds, parseInt(id)];
 

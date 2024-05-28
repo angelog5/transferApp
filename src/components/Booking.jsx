@@ -1,6 +1,7 @@
 import Car from "./Car";
 import "../assets/css/Booking.css";
 import SearchForm from "./SearchForm";
+import useWishlist from "../hooks/useWishlist";
 
 export default function Booking() {
   const cars = [
@@ -27,6 +28,8 @@ export default function Booking() {
     },
   ];
 
+  const { isWish, handleWishlist } = useWishlist();
+
   return (
     <div>
       <div className="searchForm">
@@ -34,7 +37,15 @@ export default function Booking() {
       </div>
       <div className="cars-container">
         {cars.map(({ id, model, price, image }) => (
-          <Car key={id} model={model} price={price} image={image} id={id} />
+          <Car
+            key={id}
+            model={model}
+            price={price}
+            image={image}
+            id={id}
+            isWish={isWish}
+            handleWishlist={handleWishlist}
+          />
         ))}
       </div>
     </div>

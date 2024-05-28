@@ -1,5 +1,4 @@
 import "../assets/css/car.css";
-import useWishlist from "../hooks/useWishlist";
 
 const carData = {
   model: "White Tesla",
@@ -8,8 +7,14 @@ const carData = {
     "https://service.tesla.com/docs/Public/diy/images/GUID-BEE67A59-6DD7-460C-9C49-0DD47E707A02-online-en-US.png",
 };
 
-export default function Car({ model, price, image, id }) {
-  const { isWish, handleWishlist } = useWishlist();
+export default function Car({
+  model,
+  price,
+  image,
+  id,
+  isWish,
+  handleWishlist,
+}) {
   return (
     <div className="car-container">
       <div className="content-container">
