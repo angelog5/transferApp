@@ -1,10 +1,7 @@
 import Car from "./Car";
 import "../assets/css/Booking.css";
-import { useState } from "react";
 
 export default function Booking() {
-  const [wishIds, setWishIds] = useState([]);
-
   const cars = [
     {
       id: 1,
@@ -32,15 +29,7 @@ export default function Booking() {
   return (
     <div className="cars-container">
       {cars.map(({ id, model, price, image }) => (
-        <Car
-          key={id}
-          model={model}
-          price={price}
-          image={image}
-          id={id}
-          wishIds={wishIds}
-          setWishIds={setWishIds}
-        />
+        <Car key={id} model={model} price={price} image={image} id={id} />
       ))}
     </div>
   );

@@ -1,4 +1,5 @@
 import "../assets/css/car.css";
+import useWishlist from "../hooks/useWishlist";
 
 const carData = {
   model: "White Tesla",
@@ -7,7 +8,8 @@ const carData = {
     "https://service.tesla.com/docs/Public/diy/images/GUID-BEE67A59-6DD7-460C-9C49-0DD47E707A02-online-en-US.png",
 };
 
-export default function Car({ model, price, image, id, wishIds, setWishIds }) {
+export default function Car({ model, price, image, id }) {
+  const { isWish, handleWishlist } = useWishlist();
   return (
     <div className="car-container">
       <div className="content-container">
@@ -23,11 +25,9 @@ export default function Car({ model, price, image, id, wishIds, setWishIds }) {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke={wishIds.includes(id) ? "#ff0000" : "currentColor"}
+          stroke={isWish(id) ? "#ff0000" : "currentColor"}
           onClick={() => {
-            wishIds.includes(id)
-              ? setWishIds(wishIds.filter((wishID) => id !== wishID))
-              : setWishIds([...wishIds, id]);
+            handleWishlist(id);
           }}
           className="size-6"
         >
