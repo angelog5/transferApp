@@ -2,7 +2,7 @@ import "../assets/css/Navbar.css";
 
 export default function Navbar({ page, setPage }) {
   return (
-    <div className="navbar">
+    <nav className="menu">
       <div className="icon" onClick={() => setPage("splash")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +67,6 @@ export default function Navbar({ page, setPage }) {
           />
         </svg>
       </div>
-    </div>
+    </nav>
   );
 }
