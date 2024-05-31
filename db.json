@@ -1,0 +1,106 @@
+{
+  "cars": [
+    {
+      "name": "Audi R8",
+      "price": "300 $/Day",
+      "image": "/AutoPng/audi.png",
+      "id": "1"
+    },
+    {
+      "name": "Tesla",
+      "price": "250 $/Day",
+      "image": "/AutoPng/tesla.png",
+      "id": "2"
+    },
+    {
+      "name": "BMW Serie 3",
+      "price": "280 $/Day",
+      "image": "/AutoPng/bmw.png",
+      "id": "3"
+    },
+    {
+      "name": "Mercedes-Benz E-Class",
+      "price": "270 $/Day",
+      "image": "/AutoPng/mercedes.png",
+      "id": "4"
+    },
+    {
+      "name": "Porsche 911",
+      "price": "350 $/Day",
+      "image": "/AutoPng/porsche.png",
+      "id": "5"
+    },
+    {
+      "name": "Ferrari 488",
+      "price": "400 $/Day",
+      "image": "/AutoPng/ferrari.png",
+      "id": "6"
+    },
+    {
+      "name": "Lamborghini Huracan",
+      "price": "500 $/Day",
+      "image": "/AutoPng/lamborghini.png",
+      "id": "7"
+    },
+    {
+      "name": "McLaren 720S",
+      "price": "450 $/Day",
+      "image": "/AutoPng/mclaren.png",
+      "id": "8"
+    },
+    {
+      "name": "Chevrolet Corvette",
+      "price": "200 $/Day",
+      "image": "/AutoPng/corvette.png",
+      "id": "9"
+    },
+    {
+      "name": "Ford Mustang",
+      "price": "180 $/Day",
+      "image": "/AutoPng/mustang.png",
+      "id": "10"
+    }
+  ],
+  "locations": [
+    {
+      "id": "1",
+      "name": "Bologna Centro città"
+    },
+    {
+      "id": "2",
+      "name": "Bologna San vitale"
+    },
+    {
+      "id": "3",
+      "name": "Bolognina"
+    },
+    {
+      "id": "4",
+      "name": "Bologna Aereoporto"
+    },
+    {
+      "id": "5",
+      "name": "Bari"
+    },
+    {
+      "id": "6",
+      "name": "molo di Bari"
+    },
+    {
+      "id": "7",
+      "name": "ostuni"
+    },
+    {
+      "id": "8",
+      "name": "Polignano"
+    },
+    {
+      "id": "9",
+      "name": "Otranto"
+    },
+    {
+      "id": "10",
+      "name": "Gallipoli"
+    }
+  ]
+}

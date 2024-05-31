@@ -1,14 +1,14 @@
 import "../assets/css/car.css";
 
 const carData = {
-  model: "White Tesla",
+  name: "White Tesla",
   price: "100$/Day",
   image:
     "https://service.tesla.com/docs/Public/diy/images/GUID-BEE67A59-6DD7-460C-9C49-0DD47E707A02-online-en-US.png",
 };
 
 export default function Car({
-  model,
+  name,
   price,
   image,
   id,
@@ -18,11 +18,11 @@ export default function Car({
   return (
     <div className="car-container">
       <div className="content-container">
-        <h1 className="car-model">{model}</h1>
+        <h1 className="car-name">{name}</h1>
         <p className="car-price">{price}</p>
       </div>
       <div className="image-container">
-        <img src={image} alt={`${model}`} className="car-image" />
+        <img src={image} alt={`${name}`} className="car-image" />
       </div>
       <button className="car-wishlist" type="button">
         <svg
