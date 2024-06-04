@@ -4,7 +4,6 @@ import useSWR from "swr";
 import { BASEURL, fetcher } from "../utils";
 
 export default function SearchForm() {
-  const pickupReturnRef = useRef();
   const pickupDateRef = useRef();
   const pickupTimeRef = useRef();
   const returnDateRef = useRef();
