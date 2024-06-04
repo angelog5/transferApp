@@ -1,5 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "../assets/css/SearchForm.css";
+import useSWR from "swr";
+import { BASEURL, fetcher } from "../utils";
 
 export default function SearchForm() {
   const pickupReturnRef = useRef();
@@ -7,6 +9,11 @@ export default function SearchForm() {
   const pickupTimeRef = useRef();
   const returnDateRef = useRef();
   const returnTimeRef = useRef();
+  const pickupRef = useRef();
+  const returnRef = useRef();
+  const [selectId, setSelectId] = useState(0);
+
+  const { data, error, isLoading } = useSWR(BASEURL + "/locations", fetcher);
 
   const isValidForm = (form) => {
     for (const key in form) {
@@ -28,15 +35,36 @@ export default function SearchForm() {
     console.log(form);
   };
 
+  const handleChange = (e) => {
+    const id = e.target.value;
+    setSelectId(id);
+  };
+
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <div className="input-group">
-        <input
-          type="text"
-          placeholder="🔍Pickup and Return"
-          className="pickup-return-input"
-          ref={pickupReturnRef}
-        />
+        <select id="pickupselect" ref={pickupRef} onChange={handleChange}>
+          <option>select option</option>
+          {!isLoading &&
+            !error &&
+            data &&
+            data.map(({ id, name }) => (
+              <option value={id} disabled={id == selectId}>
+                {name}
+              </option>
+            ))}
+        </select>
+        <select id="returnselect" ref={returnRef} onChange={handleChange}>
+          <option>select option</option>
+          {!isLoading &&
+            !error &&
+            data &&
+            data.map(({ id, name }) => (
+              <option value={id} disabled={id == selectId}>
+                {name}
+              </option>
+            ))}
+        </select>
       </div>
       <div className="date-group">
         <div className="date-input">
