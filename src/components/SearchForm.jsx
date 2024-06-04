@@ -2,11 +2,12 @@ import { useRef } from "react";
 import "../assets/css/SearchForm.css";
 
 export default function SearchForm() {
-  const pickupReturnRef = useRef();
   const pickupDateRef = useRef();
   const pickupTimeRef = useRef();
   const returnDateRef = useRef();
   const returnTimeRef = useRef();
+  const pickupRef = useRef();
+  const returnRef = useRef();
 
   const isValidForm = (form) => {
     for (const key in form) {
@@ -31,12 +32,13 @@ export default function SearchForm() {
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <div className="input-group">
-        <input
-          type="text"
-          placeholder="🔍Pickup and Return"
-          className="pickup-return-input"
-          ref={pickupReturnRef}
-        />
+      <select name="pickup-select" id="pickup-select">
+    <option value="">Non lo so</option>
+    </select>
+    <select name= "return-select" id="return-select">
+      <option>option</option>
+    </select>
+        
       </div>
       <div className="date-group">
         <div className="date-input">
