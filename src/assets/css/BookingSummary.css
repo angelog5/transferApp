@@ -1,0 +1,49 @@
+.booking-summary-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-summary-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.car-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+}
+
+.car-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.car-price {
+  font-size: 16px;
+  color: #666;
+}
+
+.order-details {
+  margin-bottom: 20px;
+}
+
+.rent-car-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
