@@ -1,5 +1,5 @@
-import React from 'react';
-import '../assets/css/bookingSummary.css';
+import React from "react";
+import "../assets/css/BookingSummary.css";
 
 const BookingSummary = ({
   carName,
@@ -31,7 +31,9 @@ const BookingSummary = ({
         <p>Tax: {taxPerDay}/Day</p>
         <p>Total Payable: {totalPayable}</p>
       </div>
-      <button className="rent-car-button" type="button">Rent Car Now</button>
+      <button className="rent-car-button" type="button">
+        Rent Car Now
+      </button>
     </div>
   );
 };
