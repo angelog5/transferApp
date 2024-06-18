@@ -1,6 +1,9 @@
+import { useDispatch } from "react-redux";
 import "../assets/css/Splash.css";
+import { setPage } from "../features/global/globalSlice";
 
-export default function Splash({ setPage }) {
+export default function Splash() {
+  const dispatch = useDispatch();
   return (
     <div className="splash-container">
       <div className="splash-img-container">
@@ -25,7 +28,7 @@ export default function Splash({ setPage }) {
         <button
           type="button"
           className="btn btn-primary"
-          onClick={() => setPage("booking")}
+          onClick={() => dispatch(setPage("booking"))}
         >
           Get Started
         </button>

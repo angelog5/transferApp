@@ -4,12 +4,29 @@ import SearchForm from "./SearchForm";
 import useWishlist from "../hooks/useWishlist";
 import { BASEURL, fetcher } from "../utils";
 import useSWR from "swr";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Booking() {
   const { data, error, isLoading, mutate } = useSWR(BASEURL + "/cars", fetcher);
+
+  const [filteredData, setFilteredData] = useState([]);
+
   const idRef = useRef();
   const nameRef = useRef();
+  const searchRef = useRef();
+
+  const handleSearch = () => {
+    const search = searchRef.current.value;
+    const filteredArray = data.filter(({ name }) => {
+      const lowerName = name.toLowerCase();
+      return lowerName.includes(search.toLowerCase());
+    });
+    setFilteredData(filteredArray);
+  };
+
+  useEffect(() => {
+    if (data) setFilteredData(data);
+  }, []);
 
   const changeNameById = async (id, name) => {
     return await fetch(BASEURL + "/cars/" + id, {
@@ -44,11 +61,19 @@ export default function Booking() {
         <input type="text" placeholder="Inserisci nome" ref={nameRef} />
         <button type="submit">Modifica auto</button>
       </form>
+      <form>
+        <input
+          type="text"
+          placeholder="Cerca tra le auto..."
+          ref={searchRef}
+          onChange={handleSearch}
+        />
+      </form>
       <div className="cars-container">
         {isLoading && <span>Carico le auto...</span>}
         {error && <span>Errore durante il caricamento delle auto</span>}
-        {data &&
-          data.map(({ id, name, price, image }) => (
+        {filteredData &&
+          filteredData.map(({ id, name, price, image }) => (
             <Car
               key={id}
               name={name}

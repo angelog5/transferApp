@@ -1,4 +1,6 @@
+import { useDispatch, useSelector } from "react-redux";
 import "../assets/css/car.css";
+import { setId } from "../features/car/carSlice";
 
 const carData = {
   name: "White Tesla",
@@ -15,11 +17,21 @@ export default function Car({
   isWish,
   handleWishlist,
 }) {
+  const dispatch = useDispatch();
+  const { id: selectedId } = useSelector((state) => state.car);
+
   return (
     <div className="car-container">
       <div className="content-container">
         <h1 className="car-name">{name}</h1>
         <p className="car-price">{price}</p>
+        <button
+          disabled={selectedId == id}
+          type="button"
+          onClick={() => dispatch(setId(id))}
+        >
+          {selectedId == id ? "BOOKED" : "BOOK NOW"}
+        </button>
       </div>
       <div className="image-container">
         <img src={image} alt={`${name}`} className="car-image" />

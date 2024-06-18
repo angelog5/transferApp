@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import "../assets/css/SearchForm.css";
 import useSWR from "swr";
 import { BASEURL, fetcher } from "../utils";
+import DatePicker from "react-widgets/DatePicker";
+import "react-widgets/styles.css";
 
 export default function SearchForm() {
   const pickupDateRef = useRef();
@@ -24,7 +26,6 @@ export default function SearchForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = {
-      pickupReturn: pickupReturnRef.current.value,
       pickupDate: pickupDateRef.current.value,
       pickupTime: pickupTimeRef.current.value,
       returnDate: returnDateRef.current.value,
@@ -48,7 +49,7 @@ export default function SearchForm() {
             !error &&
             data &&
             data.map(({ id, name }) => (
-              <option value={id} disabled={id == selectId}>
+              <option key={id} value={id} disabled={id == selectId}>
                 {name}
               </option>
             ))}
@@ -59,7 +60,7 @@ export default function SearchForm() {
             !error &&
             data &&
             data.map(({ id, name }) => (
-              <option value={id} disabled={id == selectId}>
+              <option key={id} value={id} disabled={id == selectId}>
                 {name}
               </option>
             ))}
@@ -68,7 +69,10 @@ export default function SearchForm() {
       <div className="date-group">
         <div className="date-input">
           <label htmlFor="pickup-date">Pickup Date</label>
-          <input type="date" id="pickup-date" ref={pickupDateRef} />
+          <DatePicker
+            placeholder="m/dd/yy"
+            onChange={(value) => console.log("Data cambiata in ", value)}
+          />
         </div>
         <div className="time-input">
           <label htmlFor="pickup-time">Pickup Time</label>

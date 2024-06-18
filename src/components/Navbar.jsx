@@ -1,9 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
 import "../assets/css/Navbar.css";
+import { setPage } from "../features/global/globalSlice";
 
-export default function Navbar({ page, setPage }) {
+export default function Navbar() {
+  const { page } = useSelector((state) => state.global);
+  const dispatch = useDispatch();
+
   return (
     <nav className="menu">
-      <div className="icon" onClick={() => setPage("splash")}>
+      <div className="icon" onClick={() => dispatch(setPage("splash"))}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill={page === "splash" ? "currentColor" : "none"}
@@ -19,7 +24,7 @@ export default function Navbar({ page, setPage }) {
           />
         </svg>
       </div>
-      <div className="icon" onClick={() => setPage("booking")}>
+      <div className="icon" onClick={() => dispatch(setPage("booking"))}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill={page === "booking" ? "currentColor" : "none"}
@@ -35,7 +40,7 @@ export default function Navbar({ page, setPage }) {
           />
         </svg>
       </div>
-      <div className="icon" onClick={() => setPage("wishlist")}>
+      <div className="icon" onClick={() => dispatch(setPage("wishlist"))}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill={page === "wishlist" ? "currentColor" : "none"}
@@ -51,7 +56,7 @@ export default function Navbar({ page, setPage }) {
           />
         </svg>
       </div>
-      <div className="icon" onClick={() => setPage("profile")}>
+      <div className="icon" onClick={() => dispatch(setPage("profile"))}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill={page === "profile" ? "currentColor" : "none"}
